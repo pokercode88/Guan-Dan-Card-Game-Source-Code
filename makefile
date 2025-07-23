@@ -1,0 +1,30 @@
+CC= gcc
+CPP = g++
+DEBUG  = -g -D_REENTRANT -DDEBUG
+
+INCLUDES = -I./ -I../include -I./ -I../include -I../../GuanDanRobotServer/include -I../../Game_Factory_gate/include -I../../lib/include -I../../../utils -I../../../third_part/xml2c -I../../../protocol -I../../../third_part/netlib
+
+LIBS = $(OS_LIB) ../../bin/Game_Factory_gate/Game_Factory.a ../../lib/lib/GameProvider.a ../../lib/lib/CommonEx.a  ../../lib/lib/Epoll.a ../../lib/lib/libaes.a  ../../lib/lib/ODBCExt.a ../../../protocol/OdaoMobileProto.a ../../../third_part/netlib/libsgnet.a -lpthread -lrt -lnsl -lgcc_s
+
+OBJS   = main.o	 GameLogic.o  Card.o CheckCard.o MatchCards.o
+
+PROG   = GuanDan_server
+
+CFLAGS = $(DEBUG) $(INCLUDES)
+CPPFLAGS = $(DEBUG) $(INCLUDES) 
+
+.PHONY : all clean
+
+all:$(PROG)
+
+$(PROG):$(OBJS)
+	$(CPP) $(CPPFLAGS) -o ../bin/$(PROG) $(OBJS) $(LIBS)
+
+clean:
+	rm -f *.o
+	rm -f *.a
+	rm -f *.bak
+	rm -f ../bin/$(PROG)
+	rm -f ../bin/core.*
+	rm -f ../bin/*.bak
+	rm -f *.tmp
