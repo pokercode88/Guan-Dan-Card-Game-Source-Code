@@ -28,7 +28,9 @@
 本项目展示核心框架及 Demo 体验包。如需包含全部功能、完整代码、部署文档及技术支持的商业版本，欢迎通过以下方式联系：
 
 Telegram	@alibabama401
+
 Email	ttpoker733@gmail.com
+
 ## 📖 产品简介 | 產品簡介 | Overview
 
 | 语言 | 说明 |
